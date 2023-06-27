@@ -371,7 +371,7 @@
 			"metadata": {
 				"description": "The location of resources such as templates and DSC modules that the script is dependent"
 				},
-			"defaultValue": "https://raw.githubusercontent.com/pravindkr/Azure/main/B2B/azuredeploy.json"
+			"defaultValue": "https://raw.githubusercontent.com/pravindkr/ASPL/main/B2B/azuredeploy.json"
 		},
 		"_artifactsLocationSasToken": {
 			"type": "securestring",
@@ -605,8 +605,8 @@
 		"sqlImagePublisher": "MicrosoftSQLServer",
 		"sqlImageOffer": "[parameters('sqlServerVersion')]",
 		"rdpPort": 3389,
-		"windowsDiskSize": 128,
-		"sqlDiskSize": 100
+		"windowsDiskSize": 30,
+		"sqlDiskSize": 30
         	},
 	"sqlAOEPName": "[concat(parameters('deploymentPrefix'),'-hadr')]",
 	"sharePath": "[concat(parameters('deploymentPrefix'),'-fsw')]",
@@ -698,13 +698,13 @@
             "creatingNicsUrl": "[uri(parameters('_artifactsLocation'), concat('nested/creatingNICS.json', parameters('_artifactsLocationSasToken')))]",
             "storageAccountVirtualNetworkPublicIP": "[uri(parameters('_artifactsLocation'), concat('nested/storageAccountVirtualNetworkPublicIP.json', parameters('_artifactsLocationSasToken')))]",
             "provisioningVMs": "[uri(parameters('_artifactsLocation'), concat('nested/provisioningVM', parameters('numberOfSqlVMDisks'),'.json', parameters('_artifactsLocationSasToken')))]",
-            "configuringBackupADVM": "[uri(parameters('_artifactsLocation'), concat('nested/configuringBackupADVM.json', parameters('_artifactsLocationSasToken')))]",
-            "preparingAlwaysOnSqlServer": "[uri(parameters('_artifactsLocation'), concat('nested/preparingSqlServer.json', parameters('_artifactsLocationSasToken')))]",
-            "configuringAlwaysOn": "[uri(parameters('_artifactsLocation'), concat('nested/configuringAlwaysOn.json', parameters('_artifactsLocationSasToken')))]",
             "adPDCModulesURL": "[uri(parameters('_artifactsLocation'), concat('scripts/CreateADPDC.ps1.zip', parameters('_artifactsLocationSasToken')))]",
             "adPDCConfigurationFunction": "CreateADPDC.ps1\\CreateADPDC",
             "adBDCModulesURL": "[uri(parameters('_artifactsLocation'), concat('scripts/CreateADBDC.ps1.zip', parameters('_artifactsLocationSasToken')))]",
             "adBDCConfigurationFunction": "CreateADBDC.ps1\\CreateADBDC",
+            "configuringBackupADVM": "[uri(parameters('_artifactsLocation'), concat('nested/configuringBackupADVM.json', parameters('_artifactsLocationSasToken')))]",
+            "preparingAlwaysOnSqlServer": "[uri(parameters('_artifactsLocation'), concat('nested/preparingSqlServer.json', parameters('_artifactsLocationSasToken')))]",
+            "configuringAlwaysOn": "[uri(parameters('_artifactsLocation'), concat('nested/configuringAlwaysOn.json', parameters('_artifactsLocationSasToken')))]",
             "fswModulesURL": "[uri(parameters('_artifactsLocation'), concat('scripts/CreateFileShareWitness.ps1.zip', parameters('_artifactsLocationSasToken')))]",
             "fswConfigurationFunction": "CreateFileShareWitness.ps1\\CreateFileShareWitness",
             "sqlAOPrepareModulesURL": "[uri(parameters('_artifactsLocation'), concat('scripts/PrepareAlwaysOnSqlServer.ps1.zip', parameters('_artifactsLocationSasToken')))]",
@@ -2297,7 +2297,7 @@
 				}
             }
         },
-		/*
+        
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2020-10-01",
@@ -2331,7 +2331,7 @@
                     }
                 }
             }
-        },*/
+        },
 		
 		{
             "type": "Microsoft.Resources/deployments",
