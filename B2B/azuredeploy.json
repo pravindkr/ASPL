@@ -2414,7 +2414,7 @@
             "apiVersion": "2020-10-01",
             "name": "UpdatingDNSwithBackupADVM",
             "dependsOn": [
-                "Microsoft.Resources/deployments/ConfiguringBackupADVM"
+                "Microsoft.Resources/deployments/UpdatingDNStoPrimaryADVM"
             ],
             "properties": {
                 "mode": "Incremental",
@@ -2450,7 +2450,7 @@
             "apiVersion": "2020-10-01",
             "name": "UpdatingSQLWNic",
             "dependsOn": [
-                "Microsoft.Resources/deployments/ConfiguringBackupADVM"
+                "Microsoft.Resources/deployments/UpdatingDNStoPrimaryADVM"
             ],
             "properties": {
                 "mode": "Incremental",
@@ -2745,7 +2745,7 @@
 		 "type": "Microsoft.Compute/virtualMachines/extensions",
 		 "name": "[concat(trim(variables('vmListArray')[copyIndex()]),'/joindomain')]",
 		 "dependsOn": [
-					"Microsoft.Resources/deployments/UpdatingDNSwithBackupADVM"
+					"Microsoft.Resources/deployments/UpdatingDNStoPrimaryADVM"
 					],
 		"location": "[parameters('location')]",
 		"copy": {
