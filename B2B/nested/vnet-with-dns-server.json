@@ -19,7 +19,7 @@
       "metadata": {
         "description": "The address range of the VNET in CIDR format"
       },
-      "defaultValue": "172.16.0.0/16"
+      "defaultValue": "10.0.0.0/16"
     },
     "subnets": {
       "type": "array",
@@ -39,7 +39,7 @@
       "name": "[parameters('virtualNetworkName')]",
       "type": "Microsoft.Network/virtualNetworks",
       "location": "[parameters('location')]",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2020-07-01",
       "properties": {
         "addressSpace": {
           "addressPrefixes": [
